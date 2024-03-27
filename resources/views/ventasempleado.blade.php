@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ventas por Empleado</title>
+    <title>Ventas Por Empleado</title>
 
     <!-- Incluye Chart.js una vez -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

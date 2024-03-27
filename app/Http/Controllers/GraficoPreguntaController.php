@@ -12,6 +12,7 @@ class GraficoPreguntaController extends Controller
     //control k y control c para comentar
 
     //1: Ventas por territorio
+
     public function showVentasPorTerritorio()
     {
         $salesData = VentasPorTerritorio::getVentasPorTerritorio();
@@ -27,7 +28,8 @@ class GraficoPreguntaController extends Controller
 
 
 
-    //2: Ventas por retailer
+    //2: Ventas por empleado
+
     public function showVentasPorEmpleado()
     {
         $salesData = VentasPorEmpleado::getVentasPorEmpleado();
@@ -64,8 +66,16 @@ class GraficoPreguntaController extends Controller
         });
     
         $data = $ventasData->pluck('TotalSales');
+
+        $backgroundColor = $ventasData->map(function () {
+            return 'rgba(' . mt_rand(0, 255) . ',' . mt_rand(0, 255) . ',' . mt_rand(0, 255) . ', 0.2)';
+        })->all();
+
+        $borderColor = $ventasData->map(function () {
+            return 'rgb(' . mt_rand(0, 255) . ',' . mt_rand(0, 255) . ',' . mt_rand(0, 255) . ')';
+        })->all();
     
-        return view('ventas_por_mes', compact('labels', 'data'));
+        return view('ventastiempo', compact('labels', 'data', 'backgroundColor', 'borderColor'));
     }
 
     //4: Ventas por producto

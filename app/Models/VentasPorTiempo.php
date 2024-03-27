@@ -10,14 +10,15 @@ class VentasPorTiempo extends Model
 {
     public static function getVentasTotalesPorTiempo()
     {
-    // Este ejemplo asume que tus datos ya están organizados por meses consecutivos
-    return DB::table('fact_sales')
+        return DB::table('fact_sales')
         ->select(
-            DB::raw('MONTH(Date) as Month'), // Asegúrate de que 'Date' es tu columna de fecha
+            'Month', // Use the 'Month' column directly
+            'Year',  // Include the 'Year' as well since you have a separate column for it
             DB::raw('SUM(Amount) as TotalSales')
         )
-        ->groupBy(DB::raw('MONTH(Date)'))
-        ->orderByRaw('MIN(Date)') // Ordena por la fecha mínima para mantener el orden cronológico
+        ->groupBy('Year', 'Month') // Group by both 'Year' and 'Month'
+        ->orderBy('Year', 'asc')   // Make sure to order by 'Year' then by 'Month' to maintain chronological order
+        ->orderBy('Month', 'asc')
         ->get();
     }
 }
