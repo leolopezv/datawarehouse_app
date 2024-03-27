@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ventas Por Empleado</title>
+@extends('layout')
+@section('content')
+<h1>Ventas por Empleado</h1>
+<!-- Incluye Chart.js una vez -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Incluye Chart.js una vez -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-
-
-<body>
-
-<canvas id="salesByEmployeeChart"></canvas>
-
+<canvas id="salesByEmployeeChart" style="max-width: 800px; max-height: 600px;"></canvas>
 <script>
   const labels = @json($labels);
   const percentages = @json($percentages);
@@ -51,7 +42,4 @@
 
   new Chart(document.getElementById('salesByEmployeeChart'), config);
 </script>
-
-    
-</body>
-</html>
+@endsection

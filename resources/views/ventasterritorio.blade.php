@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ventas Por Territorio</title>
+@extends('layout')
+@section('content')
+<h1>Ventas por Territorio</h1>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- link a chart js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-</head>
-
-<body>
-
-<canvas id="ventasChart" width="400" height="400"></canvas>
-
+<canvas id="ventasChart" style="max-width: 800px; max-height: 600px;"></canvas>
 <script>
   const labels = @json($labels);
   const ventasData = @json($data);
@@ -45,6 +35,4 @@
     config
   );
 </script>
-
-</body>
-</html>
+@endsection
