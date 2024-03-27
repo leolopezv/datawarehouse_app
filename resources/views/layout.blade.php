@@ -34,7 +34,7 @@
               <a href="/ventas-por-tiempo"><span class="fa fa-line-chart mr-3"></span>Tercera Consulta</a>
 	          </li>
 	          <li>
-              <a href="#"><span class="fa fa-bar-chart mr-3"></span>Cuarta Consulta</a>
+              <a href="/ventas-por-producto"><span class="fa fa-bar-chart mr-3"></span>Cuarta Consulta</a>
 	          </li>
 	        </ul>
 	      </div>

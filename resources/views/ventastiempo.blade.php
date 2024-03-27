@@ -3,6 +3,8 @@
 {{-- resources/views/ventas_por_anio_mes.blade.php --}}
 <h1>Ventas por Año y Mes</h1>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 <canvas id="ventasAnioMesChart" style="max-width: 800px; max-height: 600px;"></canvas>
 
 <script>
@@ -16,16 +18,27 @@
     datasets: [{
       label: 'Ventas Totales por Año y Mes',
       data: ventasData,
+      fill: false,
       backgroundColor: backgroundColor,
+      pointStyle: 'circle', 
+      pointRadius: 5, // puntos
+      pointHoverRadius: 7, // puntos al pasar el mouse para que sean más grandes 
       borderColor: borderColor,
       borderWidth: 1
     }]
   };
 
   const config = {
-    type: 'bar',
+    type: 'line',
     data: data,
     options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Ventas Totales por Año y Mes'
+        }
+      },
       scales: {
         y: {
           beginAtZero: true

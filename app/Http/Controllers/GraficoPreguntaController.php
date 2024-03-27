@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\VentasPorTerritorio;
 use App\Models\VentasPorEmpleado;
 use App\Models\VentasPorTiempo;
+use App\Models\VentasPorProducto;
 
 class GraficoPreguntaController extends Controller
 {
-    //control k y control c para comentar
+    //control k y control c para comentar --> Windows
+    // comand + shift + / ---> MAC
 
     //1: Ventas por territorio
 
@@ -83,24 +85,41 @@ class GraficoPreguntaController extends Controller
     public function showVentasPorProducto()
     {
         $salesData = VentasPorProducto::getVentasPorProducto();
-        $totalSales = VentasPorProducto::getTotalSales(); // Obtener el total de ventas
-    
         $labels = $salesData->map(function ($item) {
-            return $item->Product;
+            return $item->ProductName;
         });
-    
-        // Calcular el porcentaje de ventas para cada producto
-        $percentages = $salesData->map(function ($item) use ($totalSales) {
-            return ($item->TotalSales / $totalSales) * 100;
-        });
-    
         $data = $salesData->pluck('TotalSales');
-    
-        // Generar colores de fondo de manera dinámica
+
         $backgroundColor = $salesData->map(function () {
-            return 'rgb(' . mt_rand(0, 255) . ',' . mt_rand(0, 255) . ',' . mt_rand(0, 255) . ')';
+            return 'rgba(' . mt_rand(0, 255) . ',' . mt_rand(0, 255) . ',' . mt_rand(0, 255) . ', 0.2)';
         })->all();
+
+        $borderColor = array_fill(0, count($backgroundColor), 'rgb(0, 0, 0)');
     
-        return view('ventasproducto', compact('labels', 'percentages', 'backgroundColor'));
+        return view('ventasproducto', compact('labels', 'data', 'backgroundColor', 'borderColor'));
     }
+
+    // public function showVentasPorProducto()
+    // {
+    //     $salesData = VentasPorProducto::getVentasPorProducto();
+    //     $totalSales = VentasPorProducto::getTotalSales(); // Obtener el total de ventas
+    
+    //     $labels = $salesData->map(function ($item) {
+    //         return $item->Product;
+    //     });
+    
+    //     // Calcular el porcentaje de ventas para cada producto
+    //     $percentages = $salesData->map(function ($item) use ($totalSales) {
+    //         return ($item->TotalSales / $totalSales) * 100;
+    //     });
+    
+    //     $data = $salesData->pluck('TotalSales');
+    
+    //     // Generar colores de fondo de manera dinámica
+    //     $backgroundColor = $salesData->map(function () {
+    //         return 'rgb(' . mt_rand(0, 255) . ',' . mt_rand(0, 255) . ',' . mt_rand(0, 255) . ')';
+    //     })->all();
+    
+    //     return view('ventasproducto', compact('labels', 'percentages', 'backgroundColor'));
+    // }
 }
