@@ -10,6 +10,16 @@
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		body {
+		background-image: url('https://t4.ftcdn.net/jpg/04/21/08/53/360_F_421085379_3MQlfQNYJ33nMk6qLk3laEQ5JWyXflxY.jpg');
+		background-size: cover;
+		background-position: center;
+		}
+	</style>
+
+
   </head>
   <body>
 		
