@@ -35,16 +35,16 @@
 		  		<h1><a href="/" class="logo" style="font-size: 1.7rem; line-height: 0">Adventure DataWarehouse</a></h1>
 	        <ul class="list-unstyled components mb-5">
 	          <li>
-	              <a href="/ventas-por-territorio"><span class="fa fa-bar-chart mr-3"></span>Primera Consulta</a>
+	              <a href="/ventas-por-territorio"><span class="fa fa-bar-chart mr-3"></span>Ventas por Territorio</a>
 	          </li>
 	          <li>
-              <a href="/ventas-por-empleado"><span class="fa fa-pie-chart mr-3"></span>Segunda Consulta</a>
+              <a href="/ventas-por-empleado"><span class="fa fa-pie-chart mr-3"></span>Ventas por Empleado</a>
 	          </li>
 	          <li>
-              <a href="/ventas-por-tiempo"><span class="fa fa-line-chart mr-3"></span>Tercera Consulta</a>
+              <a href="/ventas-por-tiempo"><span class="fa fa-line-chart mr-3"></span>Ventas por Año y Mes</a>
 	          </li>
 	          <li>
-              <a href="/ventas-por-producto"><span class="fa fa-bar-chart mr-3"></span>Cuarta Consulta</a>
+              <a href="/ventas-por-producto"><span class="fa fa-bar-chart mr-3"></span>Ventas por Producto</a>
 	          </li>
 	        </ul>
 	      </div>
